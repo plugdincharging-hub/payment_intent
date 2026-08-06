@@ -10,8 +10,6 @@ def validate_intent(payment_id: str, key: str ):
 
 
 def post_intent(payment_id: str, amount: int, key: str):
-    if amount is None or amount <= 0:
-        raise ValueError("amount must be a positive integer")
     post_intent_response = requests.post(f"https://api.stripe.com/v1/payment_intents/{payment_id}/increment_authorization",
     auth=(key, ""),
     data={"amount": amount, "description": "Charger not returned - non-return fee applied"},
