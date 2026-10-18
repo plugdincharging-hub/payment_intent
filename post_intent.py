@@ -1,13 +1,15 @@
 import os
 import api_queries
+from dotenv import load_dotenv
 
+load_dotenv()
 
 def main():
     api_key = os.getenv("STRIPE_API_KEY")     # SET STRIPE KEY IN TERMINAL $env:STRIPE_API_KEY = "sk_live_..."
     if not api_key:
         raise RuntimeError("Missing STRIPE_API_KEY environment variable")
     payment_id = ""  # Fill in a PaymentIntent ID to retrieve, or leave empty to list recent ones
-    amount = 5000  # Set a number e.g. 5000 = £50
+    amount = 3000  # Set a number e.g. 5000 = £50
 
 
     if amount is not None and payment_id:
